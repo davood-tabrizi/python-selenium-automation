@@ -29,8 +29,9 @@ driver.find_element(By.ID, "ap_password_check")
 #continue field(for create account)
 driver.find_element(By.ID, "continue")
 #conditions of use link
-driver.find_element(By.CSS_SELECTOR, 'a[href*="notification_condition_of_use?ie=UTF8&nodeId=508088"]')
+driver.find_element(By.CSS_SELECTOR, 'a[href*="notification_condition_of_use"]'
+)
 #privacy notice field
-driver.find_element(By.CSS_SELECTOR, 'a[href*="notification_privacy_notice?ie=UTF8&nodeId=468496"]')
+driver.find_element(By.CSS_SELECTOR, 'a[href*="notification_privacy_notice]')
 #sign in link
 driver.find_element(By.CSS_SELECTOR, 'a.a-link-emphasis')
