@@ -4,9 +4,7 @@ from time import sleep
 
 
 
-@given("Open target main page")
-def open_main(contex):
-    contex.driver.get("https://www.target.com/")
+
 
 
 @when("Click on cart icon, on the right side of the page")
