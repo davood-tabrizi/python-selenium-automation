@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support import expected_conditions as EC
 
 
 
@@ -13,12 +14,15 @@ def verify_found_results(context, product):
 
 @when("add an item of results to cart by Clicking on Add to cart button")
 def add_item_cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, "button[data-test='chooseOptionsButton'][id='addToCartButtonOrTextIdFor13010225']").click()
-    sleep(30)
-    context.driver.find_element(By.CSS_SELECTOR, "button[data-test='orderPickupButton'][id='addToCartButtonOrTextIdFor13010225']").click()
-    sleep(30)
-    context.driver.find_element(By.XPATH, "//a[contains(text(), 'View cart & check out')]").click()
-    sleep(30)
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-test='chooseOptionsButton'][id='addToCartButtonOrTextIdFor13010225']"))).click()
+    #context.driver.find_element(By.CSS_SELECTOR, "button[data-test='chooseOptionsButton'][id='addToCartButtonOrTextIdFor13010225']").click()
+    #sleep(30)
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-test='orderPickupButton'][id='addToCartButtonOrTextIdFor13010225']"))).click()
+    #context.driver.find_element(By.CSS_SELECTOR, "button[data-test='orderPickupButton'][id='addToCartButtonOrTextIdFor13010225']").click()
+    #sleep(30)
+    context.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'View cart & check out')]"))).click()
+    #context.driver.find_element(By.XPATH, "//a[contains(text(), 'View cart & check out')]").click()
+    #sleep(30)
    # button[class ='styles_baseIconButton__1zmiH styles_iconButtonClose__R7qvf styles_sm__ZqLFy nds-cell_mod_d_header__c_btn'] svg[viewBox='0 0 24 24']
 @when('click on cart icon')
 def click_cart(context):
