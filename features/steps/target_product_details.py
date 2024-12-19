@@ -7,14 +7,16 @@ from selenium.webdriver.support import expected_conditions as EC
 
 COLOR_OPTIONS = (By.CSS_SELECTOR, "div[aria-label='Carousel'] li img")
 SELECTED_COLOR = (By.CSS_SELECTOR, "[data-test='@web/VariationComponent'] div")
+COLOR_OPTIONS_SHOES = (By.CSS_SELECTOR, '[data-module-type="ProductDetailVariationSelector"] div:nth-child(3) div:nth-child(2) ul li img')
 
+SELECTED_COLOR_SHOES = (By.CSS_SELECTOR, "div[data-module-type='ProductDetailVariationSelector']  div:nth-child(3) div")
 
 @given('Open target product {product_id} page')
 def open_target(context, product_id):
     context.driver.get(f'https://www.target.com/p/{product_id}')
     sleep(28)
 
-
+'''
 @then('Verify user can click through colors')
 def click_and_verify_colors(context):
     expected_colors = ['Blue Tint', 'Denim Blue', 'Raven', 'Marine']
@@ -32,21 +34,29 @@ def click_and_verify_colors(context):
         print(actual_colors1)
 
     assert expected_colors == actual_colors1, f'Expected {expected_colors} did not match actual {actual_colors1}'
+'''
 
-#@then('Verify user can click through colors for shoes')
-#def click_and_verify_colors(context):
-    #expected_colors = ['grey', 'navy/tan', 'white/navy/red', 'white/sand/tan']
-    #actual_colors = []
 
-    #colors = context.driver.find_elements(*COLOR_OPTIONS)  # [webelement1, webelement2, webelement3]
-    #for color in colors:
-        #color.click()
+@then('Verify user can click through colors for shoes')
+def click_and_verify_colors(context):
+    expected_colors = ['grey', 'navy/tan', 'white/sand/tan', 'white/navy/red']
+    actual_colors = []
 
-        #selected_color = context.driver.find_element(*SELECTED_COLOR).text  # 'Color\nBlack'
-        #print('Current color', selected_color)
+    colors = context.driver.find_elements(*COLOR_OPTIONS_SHOES)  # [webelement1, webelement2, webelement3]
+    print(colors)
+    for color in colors:
+        color.click()
+        sleep(5)
 
-        #selected_color = selected_color.split('\n')[1]  # remove 'Color\n' part, keep Black'
-        #actual_colors.append(selected_color)
-        #print(actual_colors)
+        selected_color = context.driver.find_element(*SELECTED_COLOR_SHOES).text  # 'Color\nBlack'
+        print('Current color', selected_color)
+        #sleep(2)
 
-   # assert expected_colors == actual_colors, f'Expected {expected_colors} did not match actual {actual_colors}'
+        selected_color = selected_color.split('\n')[1]  # remove 'Color\n' part, keep Black'
+        actual_color = selected_color.split(" ")
+        #print(actual_color[0])
+        actual_colors.append(actual_color[0])
+        #sleep(2)
+    print(actual_colors)
+
+    assert expected_colors == actual_colors, f'Expected {expected_colors} did not match actual {actual_colors}'
