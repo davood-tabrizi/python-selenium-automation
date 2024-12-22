@@ -7,9 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @then('Results for {product} are shown')
 def verify_found_results(context, product):
-    assert product.lower() in context.driver.current_url.lower(), \
-        f'Expected query not in {context.driver.current_url.lower()}'
-    sleep(10)
+    context.app.search_results_page.verify_search_results(product)
+
+    #sleep(5)
+    #assert product.lower() in context.driver.current_url.lower(), \
+        #f'Expected query not in {context.driver.current_url.lower()}'
+    #sleep(10)
 
 
 @when("add an item of results to cart by Clicking on Add to cart button")

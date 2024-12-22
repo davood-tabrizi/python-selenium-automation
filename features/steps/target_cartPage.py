@@ -5,11 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 @then("Verify 'Your cart is empty' message shown")
-def verify_found_text(contex):
- expected_result = 'Your cart is empty'
- actual_result = contex.driver.find_element(By.XPATH, "//h1[contains(text(), 'Your cart is empty')]").text
- assert expected_result in actual_result, f'Expected text {expected_result} not in actual {actual_result}'
- print('Test case passed')
+def verify_found_text(context):
+  context.app.cart_page.verify_cart_empty()
 
 
 @then("verify the cart is not empty")
