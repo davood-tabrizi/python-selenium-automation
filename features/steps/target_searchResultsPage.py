@@ -16,14 +16,15 @@ def verify_found_results(context, product):
 
 
 @when("add an item of results to cart by Clicking on Add to cart button")
-def add_item_cart(context):
-    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-test='chooseOptionsButton'][id='addToCartButtonOrTextIdFor13010225']"))).click()
+def add_item_to_cart(context):
+    context.app.search_results_page.add_item_to_cart()
+    #context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-test='chooseOptionsButton'][id='addToCartButtonOrTextIdFor13010225']"))).click()
     #context.driver.find_element(By.CSS_SELECTOR, "button[data-test='chooseOptionsButton'][id='addToCartButtonOrTextIdFor13010225']").click()
     #sleep(30)
-    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-test='orderPickupButton'][id='addToCartButtonOrTextIdFor13010225']"))).click()
+    #context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-test='orderPickupButton'][id='addToCartButtonOrTextIdFor13010225']"))).click()
     #context.driver.find_element(By.CSS_SELECTOR, "button[data-test='orderPickupButton'][id='addToCartButtonOrTextIdFor13010225']").click()
     #sleep(30)
-    context.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'View cart & check out')]"))).click()
+    #context.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'View cart & check out')]"))).click()
     #context.driver.find_element(By.XPATH, "//a[contains(text(), 'View cart & check out')]").click()
     #sleep(30)
    # button[class ='styles_baseIconButton__1zmiH styles_iconButtonClose__R7qvf styles_sm__ZqLFy nds-cell_mod_d_header__c_btn'] svg[viewBox='0 0 24 24']

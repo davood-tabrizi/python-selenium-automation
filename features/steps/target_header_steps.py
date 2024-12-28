@@ -25,13 +25,15 @@ def click_to_search_icon(context):
     #sleep(20)
 
 @when("The user click on sign-in icon")
-def click_on_signin(contex):
-  contex.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), 'Sign in')]"))).click()
+def click_on_signin(context):
+    context.app.header.click_header_sign_in_button()
+  #contex.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), 'Sign in')]"))).click()
   #contex.driver.find_element(By.XPATH, "//span[contains(text(), 'Sign in')]").click()
   #sleep(3)
 
 @when("Click Sign In from right side navigation menu")
 def click_on_signin_navigation(context):
-    context.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-test='accountNav-signIn']"))).click()
+    context.app.header.click_sign_in_side_navigation_menu()
+    #context.driver.wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@data-test='accountNav-signIn']"))).click()
     #contex.driver.find_element(By.XPATH, "//button[@data-test='accountNav-signIn']").click()
     #sleep(3)
