@@ -7,3 +7,14 @@ Feature: Target sign-in page features
     When  The user click on sign-in icon
     When  Click Sign In from right side navigation menu
     Then  Verify Sign In form opened
+
+
+  Scenario: User can open and close Terms and Conditions from sign in page
+    Given  Open target main page
+    When   The user click on sign-in icon
+    When   Click Sign In from right side navigation menu
+    When   Store original window
+    When   Click on Target terms and conditions link
+    When   Switch to the newly opened window
+    Then  Verify Terms and Conditions page is opened
+    Then  User can close new window and switch back to original

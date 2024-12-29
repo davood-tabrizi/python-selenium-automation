@@ -20,6 +20,7 @@ def input_to_search_field(context,product):
 @when('Click on the search icon')
 def click_to_search_icon(context):
     context.app.header.search_button_click()
+
     #context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-test="@web/Search/SearchButton"]'))).click()
     #context.driver.find_element(By.CSS_SELECTOR, 'button[data-test="@web/Search/SearchButton"]').click()
     #sleep(20)

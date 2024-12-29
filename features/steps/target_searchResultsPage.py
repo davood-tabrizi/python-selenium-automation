@@ -28,6 +28,8 @@ def add_item_to_cart(context):
     #context.driver.find_element(By.XPATH, "//a[contains(text(), 'View cart & check out')]").click()
     #sleep(30)
    # button[class ='styles_baseIconButton__1zmiH styles_iconButtonClose__R7qvf styles_sm__ZqLFy nds-cell_mod_d_header__c_btn'] svg[viewBox='0 0 24 24']
+
+
 @when('click on cart icon')
 def click_cart(context):
     context.driver.find_element(By.CSS_SELECTOR, "use[href='/icons/Cart.svg#Cart']").click()

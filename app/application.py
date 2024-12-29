@@ -5,6 +5,7 @@ from pages.search_results_page import SearchResultsPage
 from pages.base_page import BasePage
 from pages.cart_page import CartPage
 from pages.login_page import LoginPage
+from pages.terms_conditions_page import TermsConditions
 
 class Application:
 
@@ -17,3 +18,4 @@ class Application:
         self.search_results_page = SearchResultsPage(driver)
         self.cart_page = CartPage(driver)
         self.login_page = LoginPage(driver)
+        self.terms_conditions_page = TermsConditions(driver)
