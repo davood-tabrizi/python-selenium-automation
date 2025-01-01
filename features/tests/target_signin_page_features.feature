@@ -18,3 +18,11 @@ Feature: Target sign-in page features
     When   Switch to the newly opened window
     Then  Verify Terms and Conditions page is opened
     Then  User can close new window and switch back to original
+
+
+  Scenario: User get "We can't find your account." message when using wrong user name and password
+    Given  Open target main page
+    When   The user click on sign-in icon
+    When   Click Sign In from right side navigation menu
+    And    insert incorrect user name and password
+    Then   verify user get 'Sorry, something went wrong. Please try again' message

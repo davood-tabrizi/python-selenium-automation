@@ -21,6 +21,13 @@ def store_original_window(context):
 def target_term_and_condition_link(context):
   context.app.login_page.target_term_and_condition_link()
 
+@when("insert incorrect user name and password")
+def insert_incorrect_information(context):
+ context.app.login_page.insert_incorrect_user_password()
+
+@then("verify user get 'Sorry, something went wrong. Please try again' message")
+def verify_user_denied_to_access_with_wrong_user_password(context):
+ context.app.login_page.verify_user_denied_to_access_with_wrong_user_password()
 
 
 
